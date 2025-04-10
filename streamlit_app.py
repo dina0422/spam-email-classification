@@ -1,12 +1,10 @@
 import streamlit as st
 import pandas as pd
-import joblib
+from model_loader import load_model_and_vectorizer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.naive_bayes import MultinomialNB
 
-# Load model and vectorizer (make sure these are saved from your notebook)
-model = joblib.load("spam_classifier_model.pkl")
-vectorizer = joblib.load("vectorizer.pkl")
+model, vectorizer = load_model_and_vectorizer()
 
 st.title("📧 Email Spam Classifier")
 st.write("Enter the content of an email below to check if it's spam or not.")
